@@ -1,0 +1,3 @@
+#Day 1:
+##0745
+Up and at 'em. Devil Whisperer (or Demonizer) has begun the planning stages while Unity for ubuntu downloads and installs. Decided to go with Unity because I have no actual experience with unreal yet and I don't wanna just do command line stuff with ASCII graphics. I am going to be focusing on making the "Hud" elements of this game look and feel good. Text boxes, responses, menus, all that stuff. The theme of the game is the pursuit of power, which will be reflected in the core mechanic (acquire certain abilities from demons to open certain gates) and possible player responses (which will be manipulative). I hope I'll be able to think of more than just that.
