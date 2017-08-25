@@ -14,6 +14,11 @@ public class TextBoxManager : MonoBehaviour {
 	public int currLine;
 	public int endAtLine;
 
+	public bool isActive;
+	public bool StopMovement;
+
+	public PlayerController player;
+
 	//public PlayerController.
 
 	// Use this for initialization
@@ -23,7 +28,7 @@ public class TextBoxManager : MonoBehaviour {
 		//now.
 
 		//Grab your player controller.
-
+		player = FindObjectOfType<PlayerController>();
 		if (textFile != null) {
 			textLines = (textFile.text.Split ('\n'));
 		}
@@ -32,17 +37,46 @@ public class TextBoxManager : MonoBehaviour {
 			endAtLine = textLines.Length - 2;//-1 to prevent off by one error and not use the last line.
 		}
 
+		if (isActive) {
+			EnableTextBox ();
+		} else {
+			DisableTextBox ();
+		}
+
 	}
 
 	void Update(){
+		if (!isActive) {
+			return;
+		}
 		theText.text = textLines[currLine];
 		if (Input.GetKeyDown (KeyCode.Space) && currLine <= endAtLine) {
 			currLine++;
 		}
 
 		if (currLine > endAtLine) {
-			textBox.SetActive (false);
+			DisableTextBox ();
+		}
+	}
 
+	public void EnableTextBox(){
+		textBox.SetActive (true);
+		isActive = true;
+		if (StopMovement) {
+			player.canMove = false;
+		}
+	}
+
+	public void DisableTextBox(){
+		textBox.SetActive (false);
+		player.canMove = true;
+		isActive = false;
+	}
+
+	public void ReloadScript(TextAsset newText){
+		if (newText != null) {
+			textLines = new string[1];
+			textLines = (newText.text.Split ('\n'));
 		}
 	}
 }
