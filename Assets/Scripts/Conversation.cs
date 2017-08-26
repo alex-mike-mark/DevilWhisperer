@@ -25,23 +25,25 @@ public class Conversation : MonoBehaviour
 	
 	}
 
-	public ConvNode startConversation(){
-		//the idea here is to grab a random root and create a ConvNode for it.
-
-		//grab random root element
-		Debug.Log("start convo called");
-		var roots = from rn in convosheet.Elements("node")
-			where (string)rn.Attribute("Type") == "root"
-			select rn;
-
-	
-		
-		//create ConvNode from it.
-		Debug.Log("Start convo end");
-		return null;
+	public void startConversation(){
+		ConvNode root = getConvRoot ();
 	}
 
+	private ConvNode getConvRoot(){
+		//the idea here is to grab a random root and create a ConvNode for it.
+		//the way it's written right now, I am convinced it's pretty bad.
 
+		//grab random root element
+		Debug.Log ("start convo called");
+		var roots = from rn in convosheet.Elements ("node")
+		            where (string)rn.Attribute ("Type") == "root"
+		            select rn;
+		var rarr = roots.ToArray ();
+		System.Random rng = new System.Random ();
+		XElement root = rarr[rng.Next (rarr.Count())];
+		Debug.Log (root);
+
+		//create ConvNode from it.
+		return null;
+	}
 }
-
-
