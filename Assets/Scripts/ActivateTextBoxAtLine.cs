@@ -27,9 +27,9 @@ public class ActivateTextBoxAtLine : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other){
 		Debug.Log("collision");
 		if (other.tag == "Player" && Input.GetKeyDown(KeyCode.Space)) {
-			tbm.ReloadScript (theText);
-			tbm.currLine = startLine;
+			tbm.currLine = startLine;//this is terrible.
 			tbm.endAtLine = endLine;
+			tbm.ReloadScript (theText);
 			if (destroyWhenActivated) {
 				Destroy (gameObject);
 			}

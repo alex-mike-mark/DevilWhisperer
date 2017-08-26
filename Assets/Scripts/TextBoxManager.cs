@@ -78,5 +78,8 @@ public class TextBoxManager : MonoBehaviour {
 			textLines = new string[1];
 			textLines = (newText.text.Split ('\n'));
 		}
+		if (endAtLine == 0) {
+			endAtLine = textLines.Length-1;
+		}
 	}
 }
