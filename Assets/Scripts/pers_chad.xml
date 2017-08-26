@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<conversation>
+<node Type="root">
+	<id>0</id>
+	<prompt>Ever seen a demon as hot as me?</prompt>
+	<option>
+		<response>No way, man.</response>
+		<possibility>
+			<next>1</next>
+		</possibility>
+	</option>
+	<option>
+		<response>Absolutely.</response>
+		<possibility>
+			<next>2</next>
+		</possibility>
+	</option>
+	<option>
+		<response>I've never seen a demon.</response>
+		<possibility>
+			<next>3</next>
+		</possibility>
+	</option>
+</node>
+
+<node Type="whisper">
+	<id>1</id>
+	<prompt>Damn straight. Want some of my hotness?</prompt>
+</node>
+
+<node Type="attack">
+	<id>2</id>
+	<prompt>I'll show you!</prompt>
+</node>
+
+<node Type="end">
+	<id>3</id>
+	<prompt>Try to keep it that way, loser.</prompt>
+</node>
+</conversation>
