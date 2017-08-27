@@ -6,15 +6,15 @@ using System.Xml.Linq;//let's try it out.
 using System.Linq;
 
 //takes in a <response> XElement, resolves the possibilities
-public class Response
+public class Option
 {
-	string text;
+	string response;
 	int nextId;
 
-	public Response (XElement response)
+	public Option (XElement opt)
 	{
-		text = (string)response.Element ("response");
-		IEnumerable<XElement> possibilities = response.Elements ("possibility");
+		response = (string)opt.Element ("response");
+		IEnumerable<XElement> possibilities = opt.Elements ("possibility");
 		nextId = resolvePossibility (possibilities);
 	}
 
@@ -28,6 +28,10 @@ public class Response
 		XElement[] parr = possibilities.ToArray();
 		System.Random rng = new System.Random ();
 		return (int)parr[rng.Next (parr.Count())].Element("next");
+	}
+
+	int getNext(){
+		return nextId;
 	}
 }
 

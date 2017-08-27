@@ -9,7 +9,7 @@ using System.Linq;
 public class ConvNode
 {
 	string prompt;
-	Response[] responses;
+	Option[] options;
 	int id; //lots of redundency with this. kinda gross.
 	string type; //make into an enum later.
 
@@ -21,10 +21,10 @@ public class ConvNode
 		IEnumerable<XElement> crudeResponses = node.Elements("option");
 		//create the response array of that size
 		int length = crudeResponses.Count();
-		responses = new Response[length];
+		options = new Option[length];
 		//call new Response that many times.
 		foreach(XElement xe in crudeResponses){
-			responses[i] = new Response(xe);
+			options[i] = new Option(xe);
 			i++;
 		}
 		id = (int)node.Element("id");
