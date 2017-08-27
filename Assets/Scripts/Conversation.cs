@@ -5,6 +5,7 @@ using System;
 using System.Xml.Linq;//let's try it out.
 using System.Linq;
 
+//this class is apparently responsible for getting a bunch of XML shit.
 public class Conversation : MonoBehaviour
 {
 	XElement convosheet;
@@ -15,8 +16,6 @@ public class Conversation : MonoBehaviour
 		convosheet = XElement.Load ("./Assets/Scripts/pers_chad.xml");//currently hardcoded for testing.
 		if (convosheet == null) {
 			Debug.Log ("It didn't get init.");
-		} else {
-			Debug.Log ("It gets init");
 		}
 		startConversation ();
 	}
@@ -27,6 +26,7 @@ public class Conversation : MonoBehaviour
 
 	public void startConversation(){
 		ConvNode root = getConvRoot ();
+
 	}
 
 	private ConvNode getConvRoot(){
@@ -34,16 +34,14 @@ public class Conversation : MonoBehaviour
 		//the way it's written right now, I am convinced it's pretty bad.
 
 		//grab random root element
-		Debug.Log ("start convo called");
 		var roots = from rn in convosheet.Elements ("node")
 		            where (string)rn.Attribute ("Type") == "root"
 		            select rn;
 		var rarr = roots.ToArray ();
 		System.Random rng = new System.Random ();
 		XElement root = rarr[rng.Next (rarr.Count())];
-		Debug.Log (root);
 
 		//create ConvNode from it.
-		return null;
+		return new ConvNode(root);
 	}
 }
