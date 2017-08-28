@@ -10,9 +10,9 @@ public class Conversation : MonoBehaviour
 {
 	XElement convosheet;
 	//IEnumerable<XElement> cnodes;
+	ConvNode curr;
 
 	void Start(){
-		Debug.Log ("It starts");
 		convosheet = XElement.Load ("./Assets/Scripts/pers_chad.xml");//currently hardcoded for testing.
 		if (convosheet == null) {
 			Debug.Log ("It didn't get init.");
@@ -21,11 +21,11 @@ public class Conversation : MonoBehaviour
 	}
 
 	void Update(){
-	
+
 	}
 
 	public void startConversation(){
-		ConvNode root = getConvRoot ();
+		curr = getConvRoot ();
 
 	}
 
@@ -43,5 +43,13 @@ public class Conversation : MonoBehaviour
 
 		//create ConvNode from it.
 		return new ConvNode(root);
+	}
+
+	public ConvNode getNextPrompt(int nextId){
+		return null;
+	}
+
+	public ConvNode getCurr(){
+		return curr;
 	}
 }

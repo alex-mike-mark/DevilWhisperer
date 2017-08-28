@@ -11,6 +11,7 @@ public class Option
 	string response;
 	int nextId;
 
+
 	public Option (XElement opt)
 	{
 		response = (string)opt.Element ("response");
@@ -30,8 +31,12 @@ public class Option
 		return (int)parr[rng.Next (parr.Count())].Element("next");
 	}
 
-	int getNext(){
+	public int getNext(){
 		return nextId;
+	}
+
+	public string getResponse(){
+		return response;
 	}
 }
 
