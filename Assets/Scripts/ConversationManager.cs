@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 //
 public class ConversationManager : MonoBehaviour {
-
-	private bool isActive;
 	ConvNode currNode;
 	public Conversation conv;
 	//public GameObject panel;
 	public Transform contentPanel;
 	public SimpleObjectPool bop;
+	public List<OptionButton> currOpts;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +24,7 @@ public class ConversationManager : MonoBehaviour {
 	}
 
 	public void initPanel(){
-		conv = new Conversation ();
+		//conv = new Conversation ();
 		currNode = conv.getCurr ();
 	}
 
@@ -34,6 +33,7 @@ public class ConversationManager : MonoBehaviour {
 		//
 		Option[] opts = currNode.getOptions();
 		foreach (Option opt in opts) {
+			
 			GameObject newButton = bop.GetObject ();
 			newButton.transform.SetParent (contentPanel);
 
