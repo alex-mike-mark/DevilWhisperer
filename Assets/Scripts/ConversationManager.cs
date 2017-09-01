@@ -10,7 +10,9 @@ public class ConversationManager : MonoBehaviour {
 	//public GameObject panel;
 	public Transform contentPanel;
 	public SimpleObjectPool bop;
+	public Text prompt;
 	public List<OptionButton> currOpts;
+
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +23,7 @@ public class ConversationManager : MonoBehaviour {
 
 	public void refreshDisplay(){
 		addButtons ();
+		refreshPrompt ();
 	}
 
 	public void initPanel(){
@@ -41,4 +44,9 @@ public class ConversationManager : MonoBehaviour {
 			newOB.Setup (opt, this);
 		}
 	}
+
+	private void refreshPrompt(){
+		prompt.text = currNode.getPrompt ();
+	}
+
 }

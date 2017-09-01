@@ -34,5 +34,9 @@ public class ConvNode
 	public Option[] getOptions(){
 		return options;
 	}
+
+	public string getPrompt(){
+		return prompt;
+	}
 }
 
