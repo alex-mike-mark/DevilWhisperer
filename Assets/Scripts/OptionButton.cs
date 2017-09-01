@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OptionButton : MonoBehaviour {
 
 	public Button button;
-	public string response;
+	public Text response;
 	//ConvNode node
 
 	private Option opt;
@@ -19,7 +19,7 @@ public class OptionButton : MonoBehaviour {
 
 	public void Setup(Option opt, ConversationManager cm){
 		this.opt = opt;
-		response = opt.getResponse ();
+		response.text = opt.getResponse ();
 		this.cm = cm;
 	}
 }

@@ -6,7 +6,7 @@ using System.Xml.Linq;//let's try it out.
 using System.Linq;
 
 //responsible for converting a <node> into an object we can use
-public class ConvNode : ScriptableObject
+public class ConvNode
 {
 	string prompt;
 	Option[] options;

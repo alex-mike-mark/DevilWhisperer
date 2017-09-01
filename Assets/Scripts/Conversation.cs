@@ -6,6 +6,9 @@ using System.Xml.Linq;//let's try it out.
 using System.Linq;
 
 //this class is apparently responsible for getting a bunch of XML shit.
+//should it load a whole convo completely though?
+//and should a convo be structured like an uptree?
+//Convos really oughta be DAGS.
 public class Conversation : MonoBehaviour
 {
 	XElement convosheet;
