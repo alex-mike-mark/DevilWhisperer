@@ -42,11 +42,17 @@ public class ConversationManager : MonoBehaviour {
 
 			OptionButton newOB = newButton.GetComponent<OptionButton> ();
 			newOB.Setup (opt, this);
+
+			newButton.onClick.AddListener (newOB.selectThisOption);
 		}
 	}
 
 	private void refreshPrompt(){
 		prompt.text = currNode.getPrompt ();
+	}
+
+	public void useOption(){
+		
 	}
 
 }
